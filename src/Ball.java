@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 import java.util.Random;
 
 public class Ball {
@@ -63,6 +64,7 @@ public class Ball {
         }
     }
 
+
     public void collision(Rectangle r){
         if(boundingBox.intersects(r)) {
             if (getXDirection() > 0 && Math.abs(r.x - (boundingBox.x + boundingBox.width)) <= getXDirection()) {
@@ -78,18 +80,35 @@ public class Ball {
     }
 
     public void move() {
+
+
         boundingBox.x += xDirection;
         boundingBox.y += yDirection;
         System.out.println();
-        //Bounce the ball when edge is detected
+        //Reset the ball when edge is detected
         if (boundingBox.x <= 0) {
-            setXDirection(+1);
+            boundingBox.x = 190;
+            boundingBox.y = 130;
+            setXDirection(0);
+            setYDirection(0);
+
+
         }
         if (boundingBox.x >= 385) {
-            setXDirection(-1);
+            boundingBox.x = 190;
+            boundingBox.y = 90;
+            setXDirection(0);
+            setYDirection(0);
         }
         if (boundingBox.y <= 0) setYDirection(+1);
         if (boundingBox.y >= 285) setYDirection(-1);
+    }
+
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == e.VK_SPACE) {
+            setXDirection(-1);
+            setYDirection(-1);
+        }
     }
 
     public void update(Rectangle r) {
