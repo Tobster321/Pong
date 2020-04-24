@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.awt.*;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
@@ -9,6 +10,8 @@ public class Ball {
     private Rectangle boundingBox;
     private int height = 10;
     private int width = 10;
+    int rightPoints = 0;
+    int leftPoints = 0;
 
     public Ball(int x, int y){
         pixels = new int[width*height];
@@ -27,17 +30,10 @@ public class Ball {
 
         boundingBox = new Rectangle(x, y, width, height);
 
-        Random r = new Random();
-        int rDir = r.nextInt(1);
-        if(rDir == 0) {
-            rDir--;
-        }
-        setXDirection(rDir);
-        int yrDir = r.nextInt(1);
-        if(yrDir == 0) {
-            yrDir--;
-        }
-        setYDirection(yrDir);
+
+        setXDirection(0);
+
+        setYDirection(0);
     }
 
     public void setXDirection(int xdir){
@@ -74,7 +70,7 @@ public class Ball {
             } else if (getYDirection() > 0 && Math.abs(r.y - (boundingBox.y + boundingBox.height)) <= getYDirection()) {
                 setYDirection(-1);
             } else if (getYDirection() < 0 && Math.abs(r.y + r.height - boundingBox.y) <= -getYDirection()) {
-                setYDirection(1);
+                setYDirection(+1);
             }
         }
     }
@@ -89,25 +85,38 @@ public class Ball {
         if (boundingBox.x <= 0) {
             boundingBox.x = 190;
             boundingBox.y = 130;
+            rightPoints++;
             setXDirection(0);
             setYDirection(0);
+            JOptionPane.showMessageDialog(null,"Vänster har " + leftPoints + " poäng och höger har " + rightPoints + " poäng" );
 
 
         }
         if (boundingBox.x >= 385) {
             boundingBox.x = 190;
             boundingBox.y = 90;
+            leftPoints++;
             setXDirection(0);
             setYDirection(0);
+            JOptionPane.showMessageDialog(null,"Vänster har " + leftPoints + " poäng och höger har " + rightPoints + " poäng");
         }
         if (boundingBox.y <= 0) setYDirection(+1);
         if (boundingBox.y >= 285) setYDirection(-1);
     }
 
     public void keyPressed(KeyEvent e) {
+        Random rand = new Random();
+        int rDir = rand.nextInt(2);
+        if(rDir == 0) {
+            rDir--;
+        }
+        int yrDir = rand.nextInt(2);
+        if(yrDir == 0) {
+            yrDir--;
+        }
         if (e.getKeyCode() == e.VK_SPACE) {
-            setXDirection(-1);
-            setYDirection(-1);
+            setXDirection(rDir);
+            setYDirection(yrDir);
         }
     }
 

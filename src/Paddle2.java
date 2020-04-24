@@ -21,19 +21,19 @@ public class Paddle2 {
     }
 
     public void keyPressed(KeyEvent e){
-        if(e.getKeyCode() == e.VK_W){
+        if(e.getKeyCode() == e.VK_UP){
             setYDirection(-2);
         }
-        if(e.getKeyCode() == e.VK_S){
+        if(e.getKeyCode() == e.VK_DOWN){
             setYDirection(2);
         }
     }
 
     public void keyReleased(KeyEvent e){
-        if(e.getKeyCode() == e.VK_W){
+        if(e.getKeyCode() == e.VK_UP){
             setYDirection(0);
         }
-        if(e.getKeyCode() == e.VK_S){
+        if(e.getKeyCode() == e.VK_DOWN){
             setYDirection(0);
         }
 
