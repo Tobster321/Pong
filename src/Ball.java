@@ -88,7 +88,7 @@ public class Ball {
             rightPoints++;
             setXDirection(0);
             setYDirection(0);
-            JOptionPane.showMessageDialog(null,"Vänster har " + leftPoints + " poäng och höger har " + rightPoints + " poäng" );
+            JOptionPane.showMessageDialog(null,"Left side has " + leftPoints + " points and right side has " + rightPoints + " points" );
 
 
         }
@@ -98,7 +98,7 @@ public class Ball {
             leftPoints++;
             setXDirection(0);
             setYDirection(0);
-            JOptionPane.showMessageDialog(null,"Vänster har " + leftPoints + " poäng och höger har " + rightPoints + " poäng");
+            JOptionPane.showMessageDialog(null,"Left side has " + leftPoints + " points and right side has " + rightPoints + " points"   );
         }
         if (boundingBox.y <= 0) setYDirection(+1);
         if (boundingBox.y >= 285) setYDirection(-1);

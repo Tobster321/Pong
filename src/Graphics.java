@@ -26,8 +26,8 @@ public class Graphics extends Canvas implements Runnable {
 
     private Thread thread;
     private boolean running = false;
-    private int fps = 60;
-    private int ups = 60;
+    private int fps = 70;
+    private int ups = 70;
 
     private Ball b;
     private Paddle paddle;

@@ -9,6 +9,8 @@ public class Paddle {
     private Rectangle boundingBox;
     private int width = 10;
     private int height = 40;
+    private double leftYSpeedUp = -2;
+    private double leftYspeedDown = 2;
 
     public Paddle(int x, int y, int col){
         boundingBox = new Rectangle(x, y, width, height);
@@ -22,10 +24,10 @@ public class Paddle {
 
     public void keyPressed(KeyEvent e){
         if(e.getKeyCode() == e.VK_W){
-            setYDirection(-2);
+            setYDirection((int) leftYSpeedUp);
         }
         if(e.getKeyCode() == e.VK_S){
-            setYDirection(2);
+            setYDirection((int) leftYspeedDown);
         }
     }
 
