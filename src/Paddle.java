@@ -22,6 +22,8 @@ public class Paddle {
         boundingBox.y = 120;
     }
 
+
+
     public void keyPressed(KeyEvent e){
         if(e.getKeyCode() == e.VK_W){
             setYDirection((int) leftYSpeedUp);

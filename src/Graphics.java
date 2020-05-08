@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.util.Arrays;
 
 /**
  * This is a class
@@ -60,9 +61,7 @@ public class Graphics extends Canvas implements Runnable {
     }
 
     private void draw() {
-        for (int i = 0; i < pixels.length; i++) {
-            pixels[i] = 0xFF000000;
-        }
+        Arrays.fill(pixels, 0xFF000000);
         b.draw(pixels, width);
         paddle.draw(pixels, width);
         paddle2.draw(pixels, width);
@@ -74,9 +73,12 @@ public class Graphics extends Canvas implements Runnable {
         }
 
         java.awt.Graphics g = bs.getDrawGraphics();
+        g.drawString(""+b.rightPoints,15,20);
+        g.drawString(""+b.leftPoints,200,20);
         g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
         g.dispose();
         bs.show();
+
     }
 
     private void update() {
