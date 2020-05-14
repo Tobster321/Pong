@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 
@@ -10,8 +9,8 @@ public class Ball {
     private final Rectangle boundingBox;
     private final int height = 10;
     private final int width = 10;
-    int rightPoints = 0;
-    int leftPoints = 0;
+    public int rightPoints = 0;
+    public int leftPoints = 0;
 
 
     public Ball(int x, int y){
@@ -67,7 +66,7 @@ public class Ball {
         }
     }
 
-    public void move() {
+    public int move() {
 
 
         boundingBox.x += xDirection;

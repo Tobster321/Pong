@@ -77,4 +77,7 @@ public class Paddle2 {
             }
         }
     }
+
+    public void update(int rightPoints, int leftPoints) {
+    }
 }

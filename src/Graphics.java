@@ -84,10 +84,12 @@ public class Graphics extends Canvas implements Runnable {
     private void update() {
 
         b.update(paddle.getBoundingBox());
-        paddle.update();
+        paddle.update(b.leftPoints, b.rightPoints);
 
         b.update(paddle2.getBoundingBox());
-        paddle2.update();
+        paddle2.update(b.rightPoints, b.leftPoints);
+
+
     }
 
     public synchronized void start() {

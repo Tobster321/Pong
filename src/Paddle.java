@@ -23,6 +23,20 @@ public class Paddle {
     }
 
 
+    public void comeback(int leftpoints, int rightpoints) {
+        int lp = leftpoints + 1;
+
+        if (lp < rightpoints) {
+            leftYspeedDown = 3;
+            leftYSpeedUp = 3;
+        }
+
+        if (!(lp < rightpoints));{
+            leftYspeedDown = 2;
+            leftYSpeedUp = 2;
+        }
+    }
+
 
     public void keyPressed(KeyEvent e){
         if(e.getKeyCode() == e.VK_W){
@@ -55,7 +69,7 @@ public class Paddle {
         return boundingBox;
     }
 
-    public void update(){
+    public void update(int leftPoints, int rightpoints){
         boundingBox.x += xDirection;
         if(boundingBox.x <= 0) {
             boundingBox.x = 0;
@@ -70,6 +84,7 @@ public class Paddle {
         if(boundingBox.y >= 280) {
             boundingBox.y = 280;
         }
+        comeback(leftPoints, rightpoints);
     }
 
     public void draw(int[] Screen, int screenWidth){
