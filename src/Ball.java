@@ -66,7 +66,7 @@ public class Ball {
         }
     }
 
-    public int move() {
+    public void move() {
 
 
         boundingBox.x += xDirection;
@@ -93,6 +93,7 @@ public class Ball {
         }
         if (boundingBox.y <= 0) setYDirection(+1);
         if (boundingBox.y >= 285) setYDirection(-1);
+
     }
 
     public void keyPressed(KeyEvent e) {

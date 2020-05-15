@@ -9,8 +9,8 @@ public class Paddle {
     private Rectangle boundingBox;
     private int width = 10;
     private int height = 40;
-    private double leftYSpeedUp = -2;
-    private double leftYspeedDown = 2;
+    private int leftYSpeedUp = -3;
+    private int leftYspeedDown = 3;
 
     public Paddle(int x, int y, int col){
         boundingBox = new Rectangle(x, y, width, height);
@@ -23,27 +23,31 @@ public class Paddle {
     }
 
 
-    public void comeback(int leftpoints, int rightpoints) {
-        int lp = leftpoints + 1;
+    public void comeback(int leftPoints, int rightPoints) {
+        int lp = leftPoints + 1;
 
-        if (lp < rightpoints) {
-            leftYspeedDown = 3;
-            leftYSpeedUp = 3;
+        if (lp < rightPoints) {
+            leftYspeedDown = 4;
+            leftYSpeedUp = -4;
+            width = 15;
+            height = 45;
         }
 
-        if (!(lp < rightpoints));{
-            leftYspeedDown = 2;
-            leftYSpeedUp = 2;
+        if (!(lp < rightPoints));{
+            leftYspeedDown = 3;
+            leftYSpeedUp = -3;
+            width = 10;
+            height = 40;
         }
     }
 
 
     public void keyPressed(KeyEvent e){
         if(e.getKeyCode() == e.VK_W){
-            setYDirection((int) leftYSpeedUp);
+            setYDirection(leftYSpeedUp);
         }
         if(e.getKeyCode() == e.VK_S){
-            setYDirection((int) leftYspeedDown);
+            setYDirection(leftYspeedDown);
         }
     }
 
@@ -69,7 +73,7 @@ public class Paddle {
         return boundingBox;
     }
 
-    public void update(int leftPoints, int rightpoints){
+    public void update(int leftPoints, int rightPoints){
         boundingBox.x += xDirection;
         if(boundingBox.x <= 0) {
             boundingBox.x = 0;
@@ -81,10 +85,10 @@ public class Paddle {
         if(boundingBox.y <= 0) {
             boundingBox.y = 0;
         }
-        if(boundingBox.y >= 280) {
-            boundingBox.y = 280;
+        if(boundingBox.y >= 260) {
+            boundingBox.y = 260;
         }
-        comeback(leftPoints, rightpoints);
+        comeback(leftPoints, rightPoints);
     }
 
     public void draw(int[] Screen, int screenWidth){

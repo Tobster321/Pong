@@ -9,8 +9,8 @@ public class Paddle2 {
     private Rectangle boundingBox;
     private int width = 10;
     private int height = 40;
-    private double rightYSpeedUp = -2;
-    private double rightYspeedDown = 2;
+    private double rightYSpeedUp = -3;
+    private double rightYspeedDown = 3;
 
     public Paddle2(int x, int y, int col){
         boundingBox = new Rectangle(x, y, width, height);
@@ -20,6 +20,20 @@ public class Paddle2 {
         }
         boundingBox.x = 390;
         boundingBox.y = 120;
+    }
+
+    public void comeback(int leftPoints, int rightPoints) {
+        int rp = rightPoints + 1;
+
+        if (rp < leftPoints) {
+            rightYspeedDown = 4;
+            rightYSpeedUp = -4;
+        }
+
+        if (!(rp < leftPoints));{
+            rightYspeedDown = 3;
+            rightYSpeedUp = -3;
+        }
     }
 
     public void keyPressed(KeyEvent e){
@@ -53,7 +67,7 @@ public class Paddle2 {
         return boundingBox;
     }
 
-    public void update(){
+    public void update(int rightPoints, int leftPoints){
         boundingBox.x += xDirection;
         if(boundingBox.x <= 0) {
             boundingBox.x = 0;
@@ -65,9 +79,10 @@ public class Paddle2 {
         if(boundingBox.y <= 0) {
             boundingBox.y = 0;
         }
-        if(boundingBox.y >= 280) {
-            boundingBox.y = 280;
+        if(boundingBox.y >= 260) {
+            boundingBox.y = 260;
         }
+        comeback(leftPoints, rightPoints);
     }
 
     public void draw(int[] Screen, int screenWidth){
@@ -78,6 +93,5 @@ public class Paddle2 {
         }
     }
 
-    public void update(int rightPoints, int leftPoints) {
     }
-}
+
