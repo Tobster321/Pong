@@ -30,7 +30,7 @@ public class Paddle2 {
             rightYSpeedUp = -4;
         }
 
-        if (!(rp < leftPoints));{
+        if (!(rp < leftPoints)) {
             rightYspeedDown = 3;
             rightYSpeedUp = -3;
         }

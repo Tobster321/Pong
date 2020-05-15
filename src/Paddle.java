@@ -29,15 +29,11 @@ public class Paddle {
         if (lp < rightPoints) {
             leftYspeedDown = 4;
             leftYSpeedUp = -4;
-            width = 15;
-            height = 45;
         }
 
-        if (!(lp < rightPoints));{
+        if (!(lp < rightPoints)) {
             leftYspeedDown = 3;
             leftYSpeedUp = -3;
-            width = 10;
-            height = 40;
         }
     }
 
