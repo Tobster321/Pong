@@ -22,7 +22,7 @@ public class Paddle {
         boundingBox.y = 120;
     }
 
-
+    // comeback system
     public void comeback(int leftPoints, int rightPoints) {
         int lp = leftPoints + 1;
 
@@ -37,7 +37,7 @@ public class Paddle {
         }
     }
 
-
+    // Movement
     public void keyPressed(KeyEvent e){
         if(e.getKeyCode() == e.VK_W){
             setYDirection(leftYSpeedUp);

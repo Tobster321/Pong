@@ -12,7 +12,7 @@ public class Ball {
     public int rightPoints = 0;
     public int leftPoints = 0;
 
-
+    // Draw ball
     public Ball(int x, int y){
         pixels = new int[width*height];
 

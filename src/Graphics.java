@@ -34,6 +34,7 @@ public class Graphics extends Canvas implements Runnable {
     private Paddle paddle;
     private Paddle2 paddle2;
 
+    // Draw window
     public Graphics(int w, int h, int scale) {
         this.width = w;
         this.height = h;
@@ -59,7 +60,7 @@ public class Graphics extends Canvas implements Runnable {
         paddle = new Paddle(0, 0, 0xFFFF0000);
         paddle2 = new Paddle2(0, 0, 0xFFFF0000);
     }
-
+    // Draw all objects
     private void draw() {
         Arrays.fill(pixels, 0xFF000000);
         b.draw(pixels, width);
@@ -134,6 +135,7 @@ public class Graphics extends Canvas implements Runnable {
         stop();
     }
 
+    // Process keys
     private class MyKeyListener implements KeyListener {
         @Override
         public void keyTyped(KeyEvent keyEvent) {
