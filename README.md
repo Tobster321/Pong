@@ -1,6 +1,6 @@
 # Pong
-Logbok https://github.com/Tobster321/Pong/wiki/Logbok
-Post Mortem: 
+Logbok: https://github.com/Tobster321/Pong/wiki/Logbok
+Post Mortem: https://github.com/Tobster321/Pong/wiki/Post-Mortem
 ## -Vad behöver göras?
 Jag har tänkt att göra ett pong spel och då behöver man skapa 2 paddels som kan röra sig i Y ledet.
 Efter det behöver man en boll som rör sig och studsar på väggar eller paddels. Efter det så msåte man fixa ett poäng system där om bollen rör sig vid nått av x ledets kanterna så resettar bollen och ett poäng ges till den som gjorde mål.
